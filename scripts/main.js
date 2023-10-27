@@ -9,9 +9,14 @@ function show() {
         nav.style.display = "none";
         return;
     }
-    
+
     setTimeout(() => {
         nav.style.display = "block";
     }, 450);
+}
 
+class Sebastien{
+    direBonjour(){
+        console.log("Bonjour");
+    }
 }
