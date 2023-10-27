@@ -2,16 +2,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: url("../images/Belgium_Flag_Cursor.png"), auto;
 }
+a,button,#menu, #menu > span{
+    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+}
+/*----------HEADER----------*/
 header{
     height: 100vh;
     overflow: hidden;
+}
+
+#mainTitle {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
 }
 
-h1{
+#mainTitle > h1{
     text-shadow: 3px 2px black;
     text-transform: uppercase;
     background-color: transparent;
@@ -19,6 +33,80 @@ h1{
     color: white;
     font-size: 4rem;
 }
+
+#menu{
+    position: relative;
+    display: inline-block;
+    width: 2.8rem;
+    height: 2.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    background-color: rgb(44, 43, 43);
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 2;
+    transition: all 0.3s linear;
+}
+
+#menu:hover{
+    background-color: rgb(66, 66, 66);
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+#menu > span{
+    display: block;
+    height: 2px;
+    background-color: white;
+    margin: 8px 0 8px 0;
+    border-radius: 5px;
+}
+
+#menuList{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 20vw;
+    background-color: rgb(14, 18, 26);
+    z-index: 2;
+}
+
+#menuList nav{
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#menuList li{
+    list-style-type: none;
+    margin: 2rem 0 2rem 0;
+    padding: 1rem;
+    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+}
+
+#menuList li:hover{
+    background-color: rgb(240, 219, 24);
+    border-radius: 1rem;
+}
+
+#menuList li:active{
+    background-color: rgb(197, 179, 19);
+    border-radius: 1rem;
+}
+
+#menuList li:hover a{
+    color: rgb(14, 18, 26);
+}
+
+
+#menuList a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+}
+
 
 #flag{
     z-index: -1;
@@ -29,3 +117,5 @@ h1{
     width: 100%;
     height: 100vh;
 }
+
+/*---------- ? ----------*/
