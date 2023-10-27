@@ -34,6 +34,10 @@ header{
     font-size: 4rem;
 }
 
+#mainTitle > h1::selection{
+    background-color: rgb(255, 64, 41);
+}
+
 #menu{
     position: relative;
     display: inline-block;
@@ -125,6 +129,10 @@ header{
     color: rgb(14, 18, 26);
 }
 
+
+#menuList a::selection{
+    background-color: rgb(255, 64, 41);
+}
 
 #menuList a{
     font-size: 2rem;
