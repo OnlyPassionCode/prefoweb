@@ -14,9 +14,3 @@ function show() {
         nav.style.display = "block";
     }, 450);
 }
-
-class Sebastien{
-    direBonjour(){
-        console.log("Bonjour");
-    }
-}

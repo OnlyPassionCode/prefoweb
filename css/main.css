@@ -15,6 +15,10 @@
     --white: #ffffff;
 }
 
+*::selection{
+    background-color: var(--red);
+}
+
 a,button,#menu, #menu > span{
     cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
 }
@@ -43,10 +47,6 @@ header{
     text-align: center;
     color: white;
     font-size: 4rem;
-}
-
-#mainTitle > h1::selection{
-    background-color: var(--red);
 }
 
 #menu{
@@ -141,11 +141,6 @@ header{
     color: var(--black);
 }
 
-
-#menuList a::selection{
-    background-color: var(--red);
-}
-
 #menuList a{
     font-size: 2rem;
     text-decoration: none;
@@ -163,4 +158,92 @@ header{
     height: 100vh;
 }
 
-/*---------- ? ----------*/
+/*----------MAIN INDEX----------*/
+
+#index{
+    padding-top: 2rem;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--yellow);
+}
+
+#index h2{
+    color: var(--red);
+    font-size: 2rem;
+}
+
+
+#index h2::selection{
+    background-color: var(--yellow);
+}
+
+#index div{
+    margin: 10px 0px 10px 0px;
+    font-size: 1.1rem;
+}
+
+#content{
+    width: 80%;
+}
+
+/*----------FOOTER----------*/
+
+footer{
+    z-index: -2;
+    position: -webkit-sticky;
+    position: sticky;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50vh;
+    background-color: var(--blackMenuList);*
+}
+
+footer span{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 0.3rem;
+    display: block;
+    text-align: center;
+    padding: 3rem;
+}
+
+
+footer article{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+footer h5{
+    color: red;
+    font-size: 1.6rem;
+}
+
+footer h5::selection{
+    background-color: var(--yellow);
+}
+
+footer li{
+    list-style-type: none;
+    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+}
+
+footer li:hover a{
+    color: var(--yellow);
+}
+
+footer li a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--white);
+}
+
+footer p{
+    color: var(--white);
+    font-size: 1.2rem;
+}
