@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&display=swap");
+
 *{
     margin: 0;
     padding: 0;
@@ -7,17 +9,18 @@
 
 :root {
     --yellow: rgb(240, 219, 24);
-    --yellowHover: rgb(197, 179, 19);
+    --yellowHover: rgb(255, 242, 124);
     --black: rgb(44, 43, 43);
     --blackHover: rgb(66, 66, 66);
     --blackMenuList: rgb(14, 18, 26);
     --red: rgb(255, 64, 41);
     --white: #ffffff;
+    --footer: rgb(33, 37, 41);
 }
 
 *::selection{
     background-color: var(--red);
-}
+}   
 
 a,button,#menu, #menu > span{
     cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
@@ -46,7 +49,7 @@ header{
     background-color: transparent;
     text-align: center;
     color: white;
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 #menu{
@@ -162,30 +165,55 @@ header{
 
 #index{
     padding-top: 2rem;
+    padding-bottom: 1rem;
     background-color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid var(--yellow);
+    box-shadow: 0 10px 10px #16181b;
 }
 
-#index h2{
-    color: var(--red);
-    font-size: 2rem;
-}
-
-
-#index h2::selection{
+#content h2{
+    color: var(--black);
+    font-size: 1.5rem;
     background-color: var(--yellow);
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-bottom: 1px solid red;
+    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
 }
 
-#index div{
-    margin: 10px 0px 10px 0px;
+#content section{
+    margin-bottom: 1rem;
+}
+
+#content section.show div{
+    display: inline-block;
+}
+
+#content h2:hover{
+    background-color: var(--yellowHover);
+}
+
+#content div{
+    display: none;
+    overflow: hidden;
+    width: 100%;
     font-size: 1.1rem;
+    padding: 2rem 1rem 2rem 1rem;
+    border-bottom: 1px solid var(--red);
+    border-right: 1px solid var(--red);
+    border-left: 1px solid var(--red);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#content p{
+    font-family: "Inter", sans-serif
 }
 
 #content{
-    width: 80%;
+    width: 70%;
 }
 
 /*----------FOOTER----------*/
@@ -199,7 +227,7 @@ footer{
     bottom: 0;
     right: 0;
     height: 50vh;
-    background-color: var(--blackMenuList);
+    background-color: var(--footer);
 }
 
 footer span{
@@ -246,4 +274,15 @@ footer li a{
 footer p{
     color: var(--white);
     font-size: 1.2rem;
+}
+
+#copyright{
+    position: absolute;
+    left:0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    background-color: var(--blackMenuList);
 }
