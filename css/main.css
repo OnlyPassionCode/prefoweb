@@ -27,6 +27,8 @@ a,button,#menu, #menu > span{
 }
 /*----------HEADER----------*/
 header{
+    position: relative;
+    z-index: 2;
     height: 100vh;
     overflow: hidden;
 }
@@ -164,6 +166,8 @@ header{
 /*----------MAIN INDEX----------*/
 
 #index{
+    position: relative;
+    z-index: 2;
     padding-top: 2rem;
     padding-bottom: 1rem;
     background-color: var(--white);
@@ -185,10 +189,8 @@ header{
 
 #content section{
     margin-bottom: 1rem;
-}
-
-#content section.show div{
-    display: inline-block;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
 }
 
 #content h2:hover{
@@ -196,8 +198,7 @@ header{
 }
 
 #content div{
-    display: none;
-    overflow: hidden;
+    display: inline-block;
     width: 100%;
     font-size: 1.1rem;
     padding: 2rem 1rem 2rem 1rem;
@@ -205,11 +206,12 @@ header{
     border-right: 1px solid var(--red);
     border-left: 1px solid var(--red);
     border-bottom-left-radius: 0.6rem;
-    border-bottom-right-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem; 
 }
 
 #content p{
-    font-family: "Inter", sans-serif
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
 }
 
 #content{
@@ -219,7 +221,7 @@ header{
 /*----------FOOTER----------*/
 
 footer{
-    z-index: -2;
+    z-index: 1;
     position: -webkit-sticky;
     position: sticky;
     top: auto;

@@ -3,19 +3,17 @@ const menuList = document.getElementById("menuList");
 const content = document.getElementById("content");
 for (const child of content.children)
 {
-    console.log(child);
-    child.addEventListener("click", ()=>{
-        let isShow = true;
-        for(const nameClass of child.classList)
-        {
-            if(nameClass !== "show") continue;
-            isShow = false;
-            break;
+    const sizeBorderBottom = 1;
+    const sizeClosed = (child.children[0].scrollHeight + sizeBorderBottom) + "px";
+    child.style.maxHeight = sizeClosed;
+    child.children[0].addEventListener("click", ()=>{
+        let isClosed = child.style.maxHeight === sizeClosed;
+        if(isClosed){
+            child.style.maxHeight = child.scrollHeight + "px";
         }
-        if(isShow)
-            child.classList.add("show");
-        else
-            child.classList.remove("show");
+        else{
+            child.style.maxHeight = (child.children[0].scrollHeight + sizeBorderBottom) + "px";
+        }
     });
 }
 
