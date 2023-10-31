@@ -25,8 +25,13 @@
 a,
 button,
 #menu,
-#menu > span {
+#menu > span,
+a img {
   cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+}
+
+.ionicon {
+  fill: white;
 }
 /*----------HEADER----------*/
 header {
@@ -268,6 +273,14 @@ footer {
   background-color: var(--footer);
 }
 
+#skyline {
+  position: absolute;
+  bottom: 2.5rem;
+  width: 100vw;
+  text-align: center;
+  z-index: -1;
+}
+
 footer span {
   font-size: 2rem;
   font-weight: bold;
@@ -279,6 +292,7 @@ footer span {
 }
 
 footer article {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
