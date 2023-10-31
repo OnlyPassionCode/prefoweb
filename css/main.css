@@ -1,302 +1,337 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: url("../images/Belgium_Flag_Cursor.png"), auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url("../images/Belgium_Flag_Cursor.png"), auto;
 }
 
 :root {
-    --yellow: rgb(240, 219, 24);
-    --yellowHover: rgb(255, 242, 124);
-    --black: rgb(44, 43, 43);
-    --blackHover: rgb(66, 66, 66);
-    --blackMenuList: rgb(14, 18, 26);
-    --red: rgb(255, 64, 41);
-    --white: #ffffff;
-    --footer: rgb(33, 37, 41);
+  --yellow: rgb(240, 219, 24);
+  --yellowHover: rgb(255, 242, 124);
+  --black: rgb(44, 43, 43);
+  --blackHover: rgb(66, 66, 66);
+  --blackMenuList: rgb(14, 18, 26);
+  --red: rgb(255, 64, 41);
+  --white: #ffffff;
+  --footer: rgb(33, 37, 41);
 }
 
-*::selection{
-    background-color: var(--red);
-}   
+*::selection {
+  background-color: var(--red);
+}
 
-a,button,#menu, #menu > span{
-    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+a,
+button,
+#menu,
+#menu > span {
+  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
 }
 /*----------HEADER----------*/
-header{
-    position: relative;
-    z-index: 2;
-    height: 100vh;
-    overflow: hidden;
+header {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #mainTitle {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
-#mainTitle > h1{
-    text-shadow: 3px 2px black;
-    text-transform: uppercase;
-    background-color: transparent;
-    text-align: center;
-    color: white;
-    font-size: 4.5rem;
+#mainTitle > h1 {
+  text-shadow: 3px 2px black;
+  text-transform: uppercase;
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  font-size: 4.5rem;
 }
 
-#menu{
-    position: relative;
-    display: inline-block;
-    width: 2.8rem;
-    height: 2.5rem;
-    margin: 1rem;
-    border-radius: 10px;
-    background-color: var(--black);
-    border: 1px solid black;
-    padding-left: 10px;
-    padding-right: 10px;
-    z-index: 2;
-    transition: all 0.3s linear;
+#menu {
+  position: relative;
+  display: inline-block;
+  width: 2.8rem;
+  height: 2.5rem;
+  margin: 1rem;
+  border-radius: 10px;
+  background-color: var(--black);
+  border: 1px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 2;
+  transition: all 0.3s linear;
 }
 
-#menu:hover{
-    background-color: var(--blackHover);
-    border: 1px solid var(--red);
-    border-radius: 12px;
+#menu:hover {
+  background-color: var(--blackHover);
+  border: 1px solid var(--red);
+  border-radius: 12px;
 }
 
-#menu > span{
-    display: block;
-    height: 2px;
-    background-color: var(--white);
-    margin: 8px 0 8px 0;
-    border-radius: 5px;
+#menu > span {
+  display: block;
+  height: 2px;
+  background-color: var(--white);
+  margin: 8px 0 8px 0;
+  border-radius: 5px;
 }
 
-#menuList{
-    display: none;
-    border-right: 1px solid var(--red);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background-color: var(--blackMenuList);
-    z-index: 2;
-    width: 20vw;
-    animation: menuList 0.6s linear;
-    transition: all 0.6s linear;
+#menuList {
+  display: none;
+  border-right: 1px solid var(--red);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--blackMenuList);
+  z-index: 2;
+  width: 20vw;
+  animation: menuList 0.6s linear;
+  transition: all 0.6s linear;
 }
 
 @keyframes menuList {
-    0%{
-        width: 1vw;
-    }
+  0% {
+    width: 1vw;
+  }
 
-    100%{
-        width: 20vw;
-    }
+  100% {
+    width: 20vw;
+  }
 }
 
-#menuList nav{
-    display: none;
-    padding-top: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    animation: menuListNav 0.5s linear;
+#menuList nav {
+  display: none;
+  padding-top: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  animation: menuListNav 0.5s linear;
 }
 
 @keyframes menuListNav {
-    0%{
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100%{
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
-#menuList li{
-    list-style-type: none;
-    margin: 2rem 0 2rem 0;
-    padding: 1rem;
-    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+#menuList li {
+  list-style-type: none;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem;
+  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
 }
 
-#menuList li:hover{
-    background-color: var(--yellow);
-    border-radius: 1rem;
+#menuList li:hover {
+  background-color: var(--yellow);
+  border-radius: 1rem;
 }
 
-#menuList li:active{
-    background-color: var(--yellowHover);
-    border-radius: 1rem;
+#menuList li:active {
+  background-color: var(--yellowHover);
+  border-radius: 1rem;
 }
 
-#menuList li:hover a{
-    color: var(--black);
+#menuList li:hover a {
+  color: var(--black);
 }
 
-#menuList a{
-    font-size: 2rem;
-    text-decoration: none;
-    color: var(--white);
+#menuList a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--white);
 }
 
-
-#flag{
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 100vh;
+#flag {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 /*----------MAIN INDEX----------*/
 
-#index{
-    position: relative;
-    z-index: 2;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    background-color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 2px solid var(--yellow);
-    box-shadow: 0 10px 10px #16181b;
+#atonium {
+  position: absolute;
+  left: -250px;
+  bottom: -250px;
+  z-index: -1;
 }
 
-#content h2{
-    color: var(--black);
-    font-size: 1.6rem;
-    background-color: var(--yellow);
-    padding: 0.5rem 0 0.5rem 1rem;
-    border-bottom: 1px solid red;
-    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+#atonium img {
+  transform: rotate(25deg);
 }
 
-#content section{
-    margin-bottom: 1rem;
-    overflow: hidden;
-    transition: max-height 0.6s ease-in-out;
+#beer {
+  position: absolute;
+  right: -100px;
+  bottom: 0;
+  z-index: -1;
 }
 
-#content h2:hover{
-    background-color: var(--yellowHover);
+#index {
+  position: relative;
+  z-index: 2;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--yellow);
+  box-shadow: 0 10px 10px #16181b;
+  overflow: hidden;
 }
 
-#content div{
-    display: inline-block;
-    width: 100%;
-    font-size: 1.1rem;
-    padding: 2rem 1rem 2rem 1rem;
-    border-bottom: 1px solid var(--red);
-    border-right: 1px solid var(--red);
-    border-left: 1px solid var(--red);
-    border-bottom-left-radius: 0.6rem;
-    border-bottom-right-radius: 0.6rem; 
+#content .showingDiv h2 {
+  color: var(--black);
+  font-size: 1.6rem;
+  background-color: var(--yellow);
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-bottom: 1px solid red;
+  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
 }
 
-#content p{
-    font-family: "Inter", sans-serif;
-    font-size: 1.2rem;
+#content .showingDiv {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out;
 }
 
-#content{
-    width: 70%;
+#content h2:hover {
+  background-color: var(--yellowHover);
+}
+
+#content .showingDiv div {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 2rem 1rem 2rem 1rem;
+  border-bottom: 1px solid var(--red);
+  border-right: 1px solid var(--red);
+  border-left: 1px solid var(--red);
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#content p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+}
+
+#content {
+  width: 65%;
+}
+
+#contentTitle {
+  text-align: center;
+}
+
+#contentTitle h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#contentTitle img {
+  height: 3rem;
+  margin-bottom: 1rem;
 }
 
 /*----------FOOTER----------*/
 
-footer{
-    z-index: 1;
-    position: -webkit-sticky;
-    position: sticky;
-    top: auto;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 50vh;
-    background-color: var(--footer);
+footer {
+  z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50vh;
+  background-color: var(--footer);
 }
 
-footer span{
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--white);
-    letter-spacing: 0.3rem;
-    display: block;
-    text-align: center;
-    padding: 3rem;
+footer span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--white);
+  letter-spacing: 0.3rem;
+  display: block;
+  text-align: center;
+  padding: 3rem;
 }
 
-
-footer article{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+footer article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-footer article section{
-    margin: 0rem 3rem 0 3rem;
+footer article section {
+  margin: 0rem 3rem 0 3rem;
 }
 
-footer h5{
-    color: red;
-    font-size: 1.6rem;
+footer h5 {
+  color: red;
+  font-size: 1.6rem;
 }
 
-footer h5::selection{
-    background-color: var(--yellow);
+footer h5::selection {
+  background-color: var(--yellow);
 }
 
-footer li{
-    list-style-type: none;
-    cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+footer li {
+  list-style-type: none;
+  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
 }
 
-footer li:hover a{
-    color: var(--yellow);
+footer li:hover a {
+  color: var(--yellow);
 }
 
-footer li a{
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: var(--white);
+footer li a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--white);
 }
 
-footer p{
-    color: var(--white);
-    font-size: 1.2rem;
+footer p {
+  color: var(--white);
+  font-size: 1.2rem;
 }
 
-#copyright{
-    position: absolute;
-    left:0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    background-color: var(--blackMenuList);
+#copyright {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  background-color: var(--blackMenuList);
 }
 
-#logo{
-    width: 15%;
+#logo {
+  width: 15%;
 }
 
-#logoImage{
-    filter: brightness(0) invert(1);
+#logoImage {
+  filter: brightness(0) invert(1);
 }
