@@ -23,13 +23,24 @@ function show() {
   const isVisible = menuList.style.display === "block";
   const nav = menuList.children[0];
   menuList.style.display = isVisible ? "none" : "block";
-
+  
   if (isVisible) {
     nav.style.display = "none";
     return;
   }
-
+  
   setTimeout(() => {
     nav.style.display = "block";
   }, 450);
 }
+
+let idCloud = 1;
+const pathCloud = "images/clouds/cloud"
+
+const imgCloud = document.getElementById("cloud").children[0];
+imgCloud.src = pathCloud +idCloud+".png";
+setInterval(() => {
+  ++idCloud;
+  if(idCloud > 5) idCloud = 1;
+  imgCloud.src = pathCloud +idCloud+".png";
+}, 15 * 1000);
