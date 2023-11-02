@@ -198,17 +198,17 @@ header {
   position: absolute;
   z-index: -1;
   bottom: 0;
-  left: 0;
-  animation: cloud 15s linear infinite;
+  left: -110vw;
+  animation: cloud 22s linear infinite;
 }
 
 @keyframes cloud {
   0%{
-    left: -2100px;
+    left: -110vw;
   }
 
   100%{
-    left: 2000px;
+    left: 150vw;
   }
 }
 

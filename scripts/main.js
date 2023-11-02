@@ -43,4 +43,4 @@ setInterval(() => {
   ++idCloud;
   if(idCloud > 5) idCloud = 1;
   imgCloud.src = pathCloud +idCloud+".png";
-}, 15 * 1000);
+}, 22 * 1000);
