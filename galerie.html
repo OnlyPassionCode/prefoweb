@@ -2,6 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/galerie.css" />
@@ -20,7 +21,14 @@
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <div id="content">
+        <article id="timeline">
+          <h3>TimeLine</h3>
+          <section></section>
+        </article>
+      </div>
+    </main>
 
     <footer>
       <span>Kevin</span>
@@ -54,5 +62,6 @@
         </p>
       </section>
     </footer>
+    <script src="scripts/galerie/photos.js"></script>
   </body>
 </html>

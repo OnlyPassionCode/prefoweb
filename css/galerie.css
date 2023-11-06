@@ -42,3 +42,7 @@ main {
   position: relative;
   z-index: 2;
 }
+
+#content {
+  width: 65%;
+}
