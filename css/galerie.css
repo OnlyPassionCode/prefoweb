@@ -55,6 +55,11 @@ main {
   width: 20%;
 }
 
+#timeline section {
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
 #backgroundViewImage {
   display: none;
   position: fixed;

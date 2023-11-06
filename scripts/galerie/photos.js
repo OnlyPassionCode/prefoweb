@@ -9,7 +9,6 @@ names.forEach((n) => {
 fileName.sort(function (a, b) {
   return a - b;
 });
-console.log(fileName);
 
 const folder = "images/timeline/";
 const timeline = document.getElementById("timeline").children[1];
@@ -22,10 +21,10 @@ backgroundViewImage.addEventListener("click", () => {
   backgroundViewImage.style.display = "none";
 });
 
-for (let i = 0; i < 5; ++i) {
+for (let i = 0; i < 6; ++i) {
   const img = document.createElement("img");
   img.src = folder + fileName[i] + ".jpg";
-  img.addEventListener("click", (e) => {
+  img.addEventListener("click", () => {
     imgShowImg.src = img.src;
     showImg.style.display = "block";
     backgroundViewImage.style.display = "block";
