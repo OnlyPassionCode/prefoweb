@@ -10,7 +10,7 @@ fileName.sort(function (a, b) {
   return a - b;
 });
 
-const folder = "images/timeline/";
+const folder = "images/timelineResized/";
 const timeline = document.getElementById("timeline").children[1];
 const showImg = document.getElementById("viewImage");
 const imgShowImg = document.getElementById("imgViewImage");
@@ -25,7 +25,7 @@ for (let i = 0; i < 6; ++i) {
   const img = document.createElement("img");
   img.src = folder + fileName[i] + ".jpg";
   img.addEventListener("click", () => {
-    imgShowImg.src = img.src;
+    imgShowImg.src = img.src.replace("timelineResized", "timeline");
     showImg.style.display = "block";
     backgroundViewImage.style.display = "block";
   });
