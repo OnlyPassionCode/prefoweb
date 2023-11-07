@@ -52,7 +52,13 @@ main {
 
 #timeline img {
   cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  margin: 0 0.5% 0 0;
   width: 20%;
+  transition: transform 120s linear;
+}
+
+#timeline img.notransition {
+  transition: none;
 }
 
 #timeline section {
