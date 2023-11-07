@@ -9,6 +9,47 @@ names.forEach((n) => {
 fileName.sort(function (a, b) {
   return a - b;
 });
+const showImg = document.getElementById("viewImage");
+const imgShowImg = document.getElementById("imgViewImage");
+const backgroundViewImage = document.getElementById("backgroundViewImage");
+const timeline = document.getElementById("timeline").children[1];
+const leftArrow = document.getElementById("leftArrow");
+const rightArrow = document.getElementById("rightArrow");
+let isClickedImage = false;
+let totalScrollWidth = 0;
+
+leftArrow.addEventListener("click", previousImage);
+
+rightArrow.addEventListener("click", nextImage);
+
+addEventListener("keydown", (event) => {
+  if (event.key === "Escape") quitShowingImage();
+  else if (event.key === "ArrowRight") {
+    nextImage();
+  } else if (event.key === "ArrowLeft") {
+    previousImage();
+  }
+});
+
+addEventListener("wheel", (e) => {
+  if (e.deltaY < 0) previousImage();
+  else nextImage();
+});
+
+function nextImage() {
+  const currentIndex = +imgShowImg.dataset.index;
+  const nextIndex =
+    currentIndex + 1 > timeline.children.length - 1 ? 0 : currentIndex + 1;
+  imgShowImg.dataset.index = nextIndex;
+  imgShowImg.src = "images/timeline/" + fileName[nextIndex] + ".jpg";
+}
+function previousImage() {
+  const currentIndex = +imgShowImg.dataset.index;
+  const previousIndex =
+    currentIndex - 1 < 0 ? timeline.children.length - 1 : currentIndex - 1;
+  imgShowImg.dataset.index = previousIndex;
+  imgShowImg.src = "images/timeline/" + fileName[previousIndex] + ".jpg";
+}
 
 function getCurrentTranslateXFromElement(element) {
   return window
@@ -38,28 +79,27 @@ function restartTranslateWithCurrentPosition(currentTranslateX) {
   }
 }
 
-const showImg = document.getElementById("viewImage");
-const backgroundViewImage = document.getElementById("backgroundViewImage");
-const timeline = document.getElementById("timeline").children[1];
-let isClickedImage = false;
-backgroundViewImage.addEventListener("click", () => {
+function quitShowingImage() {
   showImg.style.display = "none";
   backgroundViewImage.style.display = "none";
   restartTranslateWithCurrentPosition(
     getCurrentTranslateXFromElement(timeline.children[0])
   );
   isClickedImage = false;
-});
+}
+
+backgroundViewImage.addEventListener("click", quitShowingImage);
 
 function loadBaseImage() {
   const folder = "images/timelineResized/";
-  const imgShowImg = document.getElementById("imgViewImage");
   for (let i = 0; i < names.length; ++i) {
     const img = document.createElement("img");
     img.src = folder + fileName[i] + ".jpg";
+    img.dataset.index = i;
     img.addEventListener("click", () => {
       isClickedImage = true;
       imgShowImg.src = img.src.replace("timelineResized", "timeline");
+      imgShowImg.dataset.index = img.dataset.index;
       showImg.style.display = "block";
       backgroundViewImage.style.display = "block";
       stopTranslateAndKeepPosition(getCurrentTranslateXFromElement(img));
@@ -69,7 +109,6 @@ function loadBaseImage() {
 }
 loadBaseImage();
 
-let totalScrollWidth = 0;
 function animation() {
   for (let i = 0; i < timeline.children.length; ++i) {
     const scrollWidth = timeline.children[i].scrollWidth;
