@@ -17,6 +17,7 @@ const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
 let isClickedImage = false;
 let totalScrollWidth = 0;
+let isTimelineClickDown = false;
 
 leftArrow.addEventListener("click", previousImage);
 
@@ -34,6 +35,16 @@ addEventListener("keydown", (event) => {
 addEventListener("wheel", (e) => {
   if (e.deltaY < 0) previousImage();
   else nextImage();
+});
+
+timeline.addEventListener("mousedown", () => {
+  isTimelineClickDown = true;
+});
+timeline.addEventListener("mouseup", () => {
+  isTimelineClickDown = false;
+});
+timeline.addEventListener("mousemove", () => {
+  if (!isTimelineClickDown) return;
 });
 
 function nextImage() {
