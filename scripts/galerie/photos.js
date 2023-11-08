@@ -15,8 +15,8 @@ const backgroundViewImage = document.getElementById("backgroundViewImage");
 const timeline = document.getElementById("timeline").children[1];
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
+const classNameNoTransition = "notransition";
 let isClickedImage = false;
-let totalScrollWidth = 0;
 let isTimelineClickDown = false;
 
 leftArrow.addEventListener("click", previousImage);
@@ -37,6 +37,12 @@ addEventListener("wheel", (e) => {
   else nextImage();
 });
 
+addEventListener("resize", () => {
+  restartTranslateWithCurrentPosition(
+    getCurrentTranslateXFromElement(timeline.children[0])
+  );
+});
+
 timeline.addEventListener("mousedown", () => {
   isTimelineClickDown = true;
 });
@@ -46,6 +52,15 @@ timeline.addEventListener("mouseup", () => {
 timeline.addEventListener("mousemove", () => {
   if (!isTimelineClickDown) return;
 });
+
+function getTotalSizeScrollWidthImages() {
+  let totalScrollWidth = 0;
+  for (let i = 0; i < timeline.children.length; ++i) {
+    const scrollWidth = timeline.children[i].scrollWidth;
+    totalScrollWidth += scrollWidth;
+  }
+  return totalScrollWidth;
+}
 
 function nextImage() {
   const currentIndex = +imgShowImg.dataset.index;
@@ -74,7 +89,7 @@ function stopTranslateAndKeepPosition(currentTranslateX) {
   for (let y = 0; y < timeline.children.length; ++y) {
     const image = timeline.children[y];
     image.style.transform = "translate(" + currentTranslateX + "px, 0)";
-    image.classList.add("notransition");
+    image.classList.add(classNameNoTransition);
   }
 }
 
@@ -82,8 +97,9 @@ function restartTranslateWithCurrentPosition(currentTranslateX) {
   const widthScroll = timeline.children[0].scrollWidth;
   for (let y = 0; y < timeline.children.length; ++y) {
     const image = timeline.children[y];
-    image.classList.remove("notransition");
-    image.style.transform = "translate(-" + totalScrollWidth + "px, 0)";
+    image.classList.remove(classNameNoTransition);
+    image.style.transform =
+      "translate(-" + getTotalSizeScrollWidthImages() + "px, 0)";
     const duration =
       120 - (Math.floor(Math.abs(+currentTranslateX)) / widthScroll) * 3;
     image.style.transitionDuration = duration + "s";
@@ -115,6 +131,9 @@ function loadBaseImage() {
       backgroundViewImage.style.display = "block";
       stopTranslateAndKeepPosition(getCurrentTranslateXFromElement(img));
     });
+    img.addEventListener("dragstart", function (e) {
+      e.preventDefault();
+    });
     timeline.appendChild(img);
   }
 }
@@ -122,12 +141,8 @@ loadBaseImage();
 
 function animation() {
   for (let i = 0; i < timeline.children.length; ++i) {
-    const scrollWidth = timeline.children[i].scrollWidth;
-    totalScrollWidth += scrollWidth;
-  }
-  for (let i = 0; i < timeline.children.length; ++i) {
     timeline.children[i].style.transform =
-      "translate(-" + totalScrollWidth + "px, 0)";
+      "translate(-" + getTotalSizeScrollWidthImages() + "px, 0)";
   }
 }
 animation();
@@ -148,3 +163,19 @@ function addEventListenerToImage() {
   }
 }
 addEventListenerToImage();
+
+// Check if the animation of the timeline is finsished
+setInterval(() => {
+  const currentPostion = getCurrentTranslateXFromElement(
+    timeline.children[timeline.children.length - 1]
+  );
+  if (currentPostion > -getTotalSizeScrollWidthImages()) return;
+  for (let i = 0; i < timeline.children.length; ++i) {
+    const image = timeline.children[i];
+    image.classList.add(classNameNoTransition);
+    image.style.transform = "translate(0px, 0px)";
+  }
+  setTimeout(() => {
+    restartTranslateWithCurrentPosition();
+  }, 100);
+}, 1 * 1000);

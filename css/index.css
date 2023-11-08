@@ -116,14 +116,17 @@ header {
   border-radius: 1rem;
 }
 
-#menuList li:hover a {
+#menuList li:hover {
   color: var(--black);
 }
 
-#menuList a {
+#menuList li {
   font-size: 2rem;
-  text-decoration: none;
   color: var(--white);
+}
+
+#menuList a {
+  text-decoration: none;
 }
 
 #flag {
