@@ -91,7 +91,9 @@ function restartTranslateWithCurrentPosition(currentTranslateX) {
     image.style.transform =
       "translate(-" + getTotalSizeScrollWidthImages() + "px, 0)";
     const duration =
-      120 - (Math.floor(Math.abs(+currentTranslateX)) / widthScroll) * 3;
+      +currentTranslateX > 0
+        ? 120
+        : 120 - (Math.floor(Math.abs(+currentTranslateX)) / widthScroll) * 3;
     image.style.transitionDuration = duration + "s";
   }
 }
@@ -114,6 +116,10 @@ function loadBaseImage() {
     img.src = folder + fileName[i] + ".jpg";
     img.dataset.index = i;
     img.addEventListener("click", () => {
+      if (isTimelineClickDown) {
+        isTimelineClickDown = false;
+        return;
+      }
       isClickedImage = true;
       imgShowImg.src = img.src.replace("timelineResized", "timeline");
       imgShowImg.dataset.index = img.dataset.index;
@@ -123,6 +129,11 @@ function loadBaseImage() {
     });
     img.addEventListener("dragstart", function (e) {
       e.preventDefault();
+    });
+    img.addEventListener("mousedown", (e) => {
+      lastMousePostionX = e.clientX;
+      isTimelineClickDown = true;
+      currentTranslateX = +getCurrentTranslateXFromElement(img);
     });
     timeline.appendChild(img);
   }
@@ -157,39 +168,43 @@ addEventListenerToImage();
 
 // Check if the animation of the timeline is finsished
 setInterval(() => {
+  if (isTimelineClickDown) return;
   const currentPostion = getCurrentTranslateXFromElement(
     timeline.children[timeline.children.length - 1]
   );
+  const offsetX = timeline.children[0].scrollWidth * 5;
   if (currentPostion > -getTotalSizeScrollWidthImages()) return;
   for (let i = 0; i < timeline.children.length; ++i) {
     const image = timeline.children[i];
     image.classList.add(classNameNoTransition);
-    image.style.transform = "translate(" + image.scrollWidth * 5 + "px, 0px)";
+    image.style.transform = "translate(" + offsetX + "px, 0px)";
   }
   setTimeout(() => {
-    restartTranslateWithCurrentPosition();
+    restartTranslateWithCurrentPosition(offsetX);
   }, 20);
 }, 1 * 1000);
 
 // Drag the timeline by the user
 
 let lastMousePostionX = null;
+let currentTranslateX = null;
 
-timeline.addEventListener("mousedown", (e) => {
-  lastMousePostionX = e.clientX;
-  isTimelineClickDown = true;
-});
-timeline.addEventListener("mouseup", () => {
-  isTimelineClickDown = false;
-});
 timeline.addEventListener("mousemove", (e) => {
   if (!isTimelineClickDown) return;
 
   const deltaX = e.clientX - lastMousePostionX;
   for (let i = 0; i < timeline.children.length; ++i) {
     const image = timeline.children[i];
+    image.classList.add(classNameNoTransition);
+    image.style.transform =
+      "translate(" + (currentTranslateX + deltaX) + "px, 0px)";
   }
 });
 timeline.addEventListener("mouseleave", () => {
   isTimelineClickDown = false;
+  if (isClickedImage) return;
+
+  restartTranslateWithCurrentPosition(
+    getCurrentTranslateXFromElement(timeline.children[0])
+  );
 });
