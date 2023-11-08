@@ -116,10 +116,6 @@ function loadBaseImage() {
     img.src = folder + fileName[i] + ".jpg";
     img.dataset.index = i;
     img.addEventListener("click", () => {
-      if (isTimelineClickDown) {
-        isTimelineClickDown = false;
-        return;
-      }
       isClickedImage = true;
       imgShowImg.src = img.src.replace("timelineResized", "timeline");
       imgShowImg.dataset.index = img.dataset.index;
@@ -129,11 +125,6 @@ function loadBaseImage() {
     });
     img.addEventListener("dragstart", function (e) {
       e.preventDefault();
-    });
-    img.addEventListener("mousedown", (e) => {
-      lastMousePostionX = e.clientX;
-      isTimelineClickDown = true;
-      currentTranslateX = +getCurrentTranslateXFromElement(img);
     });
     timeline.appendChild(img);
   }
@@ -200,6 +191,17 @@ timeline.addEventListener("mousemove", (e) => {
       "translate(" + (currentTranslateX + deltaX) + "px, 0px)";
   }
 });
+
+timeline.addEventListener("mousedown", (e) => {
+  lastMousePostionX = e.clientX;
+  isTimelineClickDown = true;
+  currentTranslateX = +getCurrentTranslateXFromElement(timeline.children[0]);
+});
+
+timeline.addEventListener("mouseup", (e) => {
+  isTimelineClickDown = false;
+});
+
 timeline.addEventListener("mouseleave", () => {
   isTimelineClickDown = false;
   if (isClickedImage) return;
