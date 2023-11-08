@@ -43,23 +43,13 @@ addEventListener("resize", () => {
   );
 });
 
-timeline.addEventListener("mousedown", () => {
-  isTimelineClickDown = true;
-});
-timeline.addEventListener("mouseup", () => {
-  isTimelineClickDown = false;
-});
-timeline.addEventListener("mousemove", () => {
-  if (!isTimelineClickDown) return;
-});
-
 function getTotalSizeScrollWidthImages() {
   let totalScrollWidth = 0;
+  const scrollWidth = timeline.children[0].scrollWidth;
   for (let i = 0; i < timeline.children.length; ++i) {
-    const scrollWidth = timeline.children[i].scrollWidth;
     totalScrollWidth += scrollWidth;
   }
-  return totalScrollWidth;
+  return totalScrollWidth + scrollWidth;
 }
 
 function nextImage() {
@@ -151,11 +141,12 @@ function addEventListenerToImage() {
   for (let i = 0; i < timeline.children.length; ++i) {
     const overImage = timeline.children[i];
     overImage.addEventListener("mouseover", () => {
+      if (isTimelineClickDown) return;
       const currentTranslateX = getCurrentTranslateXFromElement(overImage);
       stopTranslateAndKeepPosition(currentTranslateX);
     });
     overImage.addEventListener("mouseout", () => {
-      if (isClickedImage) return;
+      if (isClickedImage || isTimelineClickDown) return;
       restartTranslateWithCurrentPosition(
         getCurrentTranslateXFromElement(overImage)
       );
@@ -173,9 +164,32 @@ setInterval(() => {
   for (let i = 0; i < timeline.children.length; ++i) {
     const image = timeline.children[i];
     image.classList.add(classNameNoTransition);
-    image.style.transform = "translate(0px, 0px)";
+    image.style.transform = "translate(" + image.scrollWidth * 5 + "px, 0px)";
   }
   setTimeout(() => {
     restartTranslateWithCurrentPosition();
-  }, 100);
+  }, 20);
 }, 1 * 1000);
+
+// Drag the timeline by the user
+
+let lastMousePostionX = null;
+
+timeline.addEventListener("mousedown", (e) => {
+  lastMousePostionX = e.clientX;
+  isTimelineClickDown = true;
+});
+timeline.addEventListener("mouseup", () => {
+  isTimelineClickDown = false;
+});
+timeline.addEventListener("mousemove", (e) => {
+  if (!isTimelineClickDown) return;
+
+  const deltaX = e.clientX - lastMousePostionX;
+  for (let i = 0; i < timeline.children.length; ++i) {
+    const image = timeline.children[i];
+  }
+});
+timeline.addEventListener("mouseleave", () => {
+  isTimelineClickDown = false;
+});
