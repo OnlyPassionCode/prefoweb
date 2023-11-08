@@ -1,5 +1,5 @@
 const names =
-  "1425,1752,1847,1887,1912,1925,1931,1936,1941,1945,1948,1951,1953,1957,1960,1962,1969,1971,1973,1975,1977,1979,1981,1983,1985,1987,1989,1992,1994,1996,1999,2001,2004,2006,2009,2011,2013,2015,2017,476".split(
+  "1997,1425,1752,1847,1887,1912,1925,1931,1936,1941,1945,1948,1951,1953,1957,1960,1962,1969,1971,1973,1975,1977,1979,1981,1983,1985,1987,1989,1992,1994,1996,1999,2001,2004,2006,2009,2011,2013,2015,2017,476".split(
     ","
   );
 const fileName = [];
@@ -15,6 +15,7 @@ const backgroundViewImage = document.getElementById("backgroundViewImage");
 const timeline = document.getElementById("timeline").children[1];
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
+const clock = document.getElementById("clock");
 const classNameNoTransition = "notransition";
 let isClickedImage = false;
 let isTimelineClickDown = false;
@@ -50,7 +51,7 @@ function getTotalSizeScrollWidthImages() {
   for (let i = 0; i < timeline.children.length; ++i) {
     totalScrollWidth += scrollWidth;
   }
-  return totalScrollWidth + scrollWidth;
+  return totalScrollWidth + scrollWidth * 2.2;
 }
 
 function nextImage() {
@@ -77,6 +78,7 @@ function getCurrentTranslateXFromElement(element) {
 }
 
 function stopTranslateAndKeepPosition(currentTranslateX) {
+  clock.pause();
   for (let y = 0; y < timeline.children.length; ++y) {
     const image = timeline.children[y];
     image.style.transform = "translate(" + currentTranslateX + "px, 0)";
@@ -85,6 +87,7 @@ function stopTranslateAndKeepPosition(currentTranslateX) {
 }
 
 function restartTranslateWithCurrentPosition(currentTranslateX) {
+  clock.play();
   const widthScroll = timeline.children[0].scrollWidth;
   for (let y = 0; y < timeline.children.length; ++y) {
     const image = timeline.children[y];
@@ -169,7 +172,7 @@ setInterval(() => {
   const currentPostion = getCurrentTranslateXFromElement(
     timeline.children[timeline.children.length - 1]
   );
-  const offsetX = timeline.children[0].scrollWidth * 5;
+  const offsetX = timeline.children[0].scrollWidth * 3.4;
   if (currentPostion > -getTotalSizeScrollWidthImages()) return;
   for (let i = 0; i < timeline.children.length; ++i) {
     const image = timeline.children[i];
@@ -178,8 +181,8 @@ setInterval(() => {
   }
   setTimeout(() => {
     restartTranslateWithCurrentPosition(offsetX);
-  }, 20);
-}, 1 * 1000);
+  }, 5);
+}, 0.2 * 1000);
 
 // Drag the timeline by the user
 
