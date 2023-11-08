@@ -18,13 +18,14 @@ const rightArrow = document.getElementById("rightArrow");
 const classNameNoTransition = "notransition";
 let isClickedImage = false;
 let isTimelineClickDown = false;
+let lastTimeDragedTimeLine = null;
 
 leftArrow.addEventListener("click", previousImage);
 
 rightArrow.addEventListener("click", nextImage);
 
 addEventListener("keydown", (event) => {
-  if (event.key === "Escape") quitShowingImage();
+  if (event.key === "Escape" || event.key === "Delete") quitShowingImage();
   else if (event.key === "ArrowRight") {
     nextImage();
   } else if (event.key === "ArrowLeft") {
@@ -116,6 +117,11 @@ function loadBaseImage() {
     img.src = folder + fileName[i] + ".jpg";
     img.dataset.index = i;
     img.addEventListener("click", () => {
+      if (
+        lastTimeDragedTimeLine != null &&
+        new Date().getTime() - lastTimeDragedTimeLine < 200
+      )
+        return;
       isClickedImage = true;
       imgShowImg.src = img.src.replace("timelineResized", "timeline");
       imgShowImg.dataset.index = img.dataset.index;
@@ -182,7 +188,6 @@ let currentTranslateX = null;
 
 timeline.addEventListener("mousemove", (e) => {
   if (!isTimelineClickDown) return;
-
   const deltaX = e.clientX - lastMousePostionX;
   for (let i = 0; i < timeline.children.length; ++i) {
     const image = timeline.children[i];
@@ -190,6 +195,7 @@ timeline.addEventListener("mousemove", (e) => {
     image.style.transform =
       "translate(" + (currentTranslateX + deltaX) + "px, 0px)";
   }
+  lastTimeDragedTimeLine = new Date().getTime();
 });
 
 timeline.addEventListener("mousedown", (e) => {
