@@ -110,6 +110,7 @@ function quitShowingImage() {
     getCurrentTranslateXFromElement(timeline.children[0])
   );
   isClickedImage = false;
+  document.body.style.overflow = "scroll";
 }
 
 backgroundViewImage.addEventListener("click", quitShowingImage);
@@ -126,6 +127,7 @@ function loadBaseImage() {
         new Date().getTime() - lastTimeDragedTimeLine < 400
       )
         return;
+      document.body.style.overflow = "hidden";
       isClickedImage = true;
       imgShowImg.src = img.src.replace("timelineResized", "timeline");
       imgShowImg.dataset.index = img.dataset.index;
