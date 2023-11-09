@@ -1,5 +1,3 @@
-document.getElementById("flag").play();
-const menuList = document.getElementById("menuList");
 const showingDiv = document.getElementsByClassName("showingDiv");
 const sizeBorderBottom = 1;
 const sizeClosed =
@@ -17,19 +15,4 @@ for (const section of showingDiv) {
     lastShow = section;
     section.style.maxHeight = section.scrollHeight + "px";
   });
-}
-
-function show() {
-  const isVisible = menuList.style.display === "block";
-  const nav = menuList.children[0];
-  menuList.style.display = isVisible ? "none" : "block";
-
-  if (isVisible) {
-    nav.style.display = "none";
-    return;
-  }
-
-  setTimeout(() => {
-    nav.style.display = "block";
-  }, 450);
 }

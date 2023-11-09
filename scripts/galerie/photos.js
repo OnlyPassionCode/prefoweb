@@ -15,7 +15,7 @@ const backgroundViewImage = document.getElementById("backgroundViewImage");
 const timeline = document.getElementById("timeline").children[1];
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
-const clock = document.getElementById("clock");
+const engrenage = document.getElementById("engrenage");
 const classNameNoTransition = "notransition";
 let isClickedImage = false;
 let isTimelineClickDown = false;
@@ -78,7 +78,7 @@ function getCurrentTranslateXFromElement(element) {
 }
 
 function stopTranslateAndKeepPosition(currentTranslateX) {
-  clock.pause();
+  engrenage.pause();
   for (let y = 0; y < timeline.children.length; ++y) {
     const image = timeline.children[y];
     image.style.transform = "translate(" + currentTranslateX + "px, 0)";
@@ -87,7 +87,8 @@ function stopTranslateAndKeepPosition(currentTranslateX) {
 }
 
 function restartTranslateWithCurrentPosition(currentTranslateX) {
-  clock.play();
+  engrenage.playbackRate = 1.0;
+  engrenage.play();
   const widthScroll = timeline.children[0].scrollWidth;
   for (let y = 0; y < timeline.children.length; ++y) {
     const image = timeline.children[y];
@@ -122,7 +123,7 @@ function loadBaseImage() {
     img.addEventListener("click", () => {
       if (
         lastTimeDragedTimeLine != null &&
-        new Date().getTime() - lastTimeDragedTimeLine < 200
+        new Date().getTime() - lastTimeDragedTimeLine < 400
       )
         return;
       isClickedImage = true;
