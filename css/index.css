@@ -103,7 +103,7 @@ header {
   list-style-type: none;
   margin: 2rem 0 2rem 0;
   padding: 1rem;
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
 }
 
 #menuList li:hover {
@@ -236,7 +236,7 @@ footer h5::selection {
 
 footer li {
   list-style-type: none;
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
 }
 
 footer li:hover a {

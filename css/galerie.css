@@ -82,7 +82,7 @@ main video {
 }
 
 #timeline img {
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
   margin: 0 1.5% 0 0;
   width: 30%;
   transition: transform 120s linear;
@@ -124,7 +124,7 @@ main video {
 
 #buttonClose {
   position: absolute;
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
   top: 2rem;
   left: 2rem;
   width: 5rem;
@@ -152,13 +152,13 @@ main video {
 }
 
 #viewImage section img:nth-child(1) {
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
   margin-right: 3vw;
   width: 12%;
 }
 
 #viewImage section img:nth-child(3) {
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
   margin-left: 3vw;
   width: 12%;
 }
@@ -173,6 +173,7 @@ footer {
   position: relative;
   height: 35vh;
   background-color: var(--footer);
+  z-index: 1;
 }
 
 #skyline {
@@ -180,7 +181,7 @@ footer {
   bottom: 4.5rem;
   width: 100vw;
   text-align: center;
-  z-index: 1;
+  z-index: -1;
   transform: scale(1.4);
 }
 
@@ -224,7 +225,7 @@ footer h5::selection {
 
 footer li {
   list-style-type: none;
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
 }
 
 footer li:hover a {

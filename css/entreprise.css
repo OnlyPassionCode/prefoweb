@@ -1,5 +1,5 @@
 * {
-  cursor: url("../images/France_Flag_Cursor.png"), auto;
+  cursor: url("../images/cursors/France_Flag_Cursor.png"), auto;
 }
 
 a,
@@ -7,7 +7,11 @@ button,
 #menu,
 #menu > span,
 a img {
-  cursor: url("../images/France_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/France_Flag_Pointer.png"), pointer;
+}
+
+#content .showingDiv h2 {
+  cursor: url("../images/cursors/France_Flag_Pointer.png"), pointer;
 }
 
 /* HEADER */
@@ -157,28 +161,44 @@ main {
 
 /* FOOTER */
 
-footer {
-  font-family: "Inter", sans-serif;
+@keyframes cloud {
+  0% {
+    left: -110vw;
+  }
+
+  100% {
+    left: 150vw;
+  }
+}
+
+#cloud img {
+  position: absolute;
+  z-index: 1;
+  bottom: 30%;
+  transform: scaleY(-1);
+  opacity: 0.5;
+  left: -110vw;
+  animation: cloud 30s linear infinite;
 }
 
 footer {
   position: -webkit-sticky;
   position: sticky;
+  font-family: "Inter", sans-serif;
   top: auto;
   bottom: 0;
   width: 100vw;
-  height: 35vh;
+  height: 45vh;
   z-index: 1;
   background-color: var(--footer);
 }
 
 #skyline {
   position: absolute;
-  bottom: 4.5rem;
+  bottom: 10%;
   width: 100vw;
   text-align: center;
-  z-index: 1;
-  transform: scale(1.4);
+  z-index: -1;
 }
 
 footer span {
@@ -191,19 +211,10 @@ footer span {
   padding: 3rem;
 }
 
-#propos {
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  margin-top: 3.5%;
-  margin-left: 3%;
-}
-
 #link {
   position: absolute;
   right: 6%;
-  margin-top: 2.5%;
+  margin-top: 5.5%;
 }
 
 footer article {
@@ -221,7 +232,7 @@ footer h5::selection {
 
 footer li {
   list-style-type: none;
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
 }
 
 footer li:hover a {
@@ -255,7 +266,7 @@ footer p {
   width: 15%;
   position: absolute;
   left: 3%;
-  margin-top: 2.5%;
+  margin-top: 5.5%;
 }
 
 #logoImage {

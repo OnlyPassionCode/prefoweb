@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: url("../images/Belgium_Flag_Cursor.png"), auto;
+  cursor: url("../images/cursors/Belgium_Flag_Cursor.png"), auto;
 }
 
 :root {
@@ -26,7 +26,7 @@ button,
 #menu,
 #menu > span,
 a img {
-  cursor: url("../images/Belgium_Flag_Pointer.png"), pointer;
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
 }
 
 nav {
