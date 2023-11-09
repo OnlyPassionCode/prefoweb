@@ -14,6 +14,7 @@
   --red: rgb(255, 64, 41);
   --white: #ffffff;
   --footer: rgb(33, 37, 41);
+  --blue: rgb(24, 59, 214);
 }
 
 *::selection {
