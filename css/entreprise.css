@@ -36,13 +36,10 @@ header nav li a:hover {
 header nav li a.selected {
   color: var(--yellow);
 }
-
 /* MAIN */
+
 main {
-  margin-top: 3.5rem;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 10px 10px #16181b;
+  margin-top: 3rem;
 }
 
 /* FOOTER */
@@ -52,8 +49,13 @@ footer {
 }
 
 footer {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: auto;
+  bottom: 0;
+  width: 100vw;
   height: 35vh;
+  z-index: 1;
   background-color: var(--footer);
 }
 
