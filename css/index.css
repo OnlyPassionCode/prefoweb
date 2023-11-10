@@ -25,7 +25,7 @@ header {
   background-color: transparent;
   text-align: center;
   color: white;
-  font-size: 4.5rem;
+  font-size: 5.5rem;
 }
 
 #menu {
@@ -129,6 +129,92 @@ header {
   text-decoration: none;
 }
 
+@keyframes arrow3 {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-50px);
+  }
+  30% {
+    transform: translateX(-35px);
+  }
+  40% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrow2 {
+  0% {
+    transform: translateX(40px);
+  }
+  20% {
+    transform: translateX(-15px);
+  }
+  30% {
+    transform: translateX(5px);
+  }
+  40% {
+    transform: translateX(-15px);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+@keyframes arrow1 {
+  0% {
+    transform: translateX(80px);
+  }
+  20% {
+    transform: translateX(20px);
+  }
+  30% {
+    transform: translateX(45px);
+  }
+  40% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(80px);
+  }
+}
+
+#arrowIndiquation img:nth-child(1) {
+  transform: translateX(80px);
+  animation: arrow1 2s linear infinite;
+}
+
+#arrowIndiquation img:nth-child(2) {
+  transform: translateX(40px);
+  animation: arrow2 2s linear infinite;
+}
+
+#arrowIndiquation img:nth-child(3) {
+  animation: arrow3 2s linear infinite;
+}
+
+#arrowIndiquation {
+  position: absolute;
+  z-index: 2;
+  bottom: 10.5%;
+  left: 50%;
+  transform: translateX(-25px) rotate(-90deg);
+  white-space: wrap;
+}
+
+#arrowIndiquation img {
+  width: 50px;
+  height: 50px;
+}
+
+#arrowIndiquation img:hover {
+  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
+}
+
 #flag {
   z-index: -1;
   position: absolute;
@@ -140,6 +226,14 @@ header {
 }
 
 /*----------MAIN INDEX----------*/
+#index {
+  background: linear-gradient(
+    130deg,
+    rgba(19, 19, 19, 1) 30%,
+    rgba(240, 219, 24, 1) 60%,
+    rgba(255, 64, 41, 1) 80%
+  );
+}
 
 #atonium {
   position: absolute;
@@ -152,11 +246,15 @@ header {
   transform: rotate(25deg);
 }
 
-#beer {
+#mannekenpis {
   position: absolute;
-  right: -100px;
-  bottom: 0;
+  right: -30px;
+  bottom: -10px;
   z-index: -2;
+}
+
+#mannekenpis img {
+  width: 250px;
 }
 
 #cloud img {
@@ -180,28 +278,24 @@ header {
 /* FOOTER */
 
 footer {
-  font-family: "Inter", sans-serif;
-}
-
-footer {
-  z-index: 1;
   position: -webkit-sticky;
   position: sticky;
+  font-family: "Inter", sans-serif;
   top: auto;
-  left: 0;
   bottom: 0;
-  right: 0;
-  height: 40vh;
+  width: 100vw;
+  height: 35vh;
+  z-index: 1;
   background-color: var(--footer);
 }
 
 #skyline {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 21%;
   width: 100vw;
   text-align: center;
   z-index: -1;
-  transform: scale(1.25);
+  transform: scale(1.2);
 }
 
 footer span {
@@ -214,20 +308,19 @@ footer span {
   padding: 3rem;
 }
 
-footer article {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+#link {
+  position: absolute;
+  right: 6%;
+  margin-top: 3.5%;
 }
 
-footer article section {
-  margin: 0rem 3rem 0 3rem;
+footer article {
+  position: relative;
 }
 
 footer h5 {
   color: red;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 footer h5::selection {
@@ -244,7 +337,7 @@ footer li:hover a {
 }
 
 footer li a {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-decoration: none;
   color: var(--white);
 }
@@ -259,6 +352,7 @@ footer p {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 2;
   text-align: center;
   padding-bottom: 1rem;
   padding-top: 1rem;
@@ -267,8 +361,12 @@ footer p {
 
 #logo {
   width: 15%;
+  position: absolute;
+  left: 3%;
+  margin-top: 3.5%;
 }
 
 #logoImage {
+  width: 250px;
   filter: brightness(0) invert(1);
 }
