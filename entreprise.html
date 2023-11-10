@@ -22,7 +22,7 @@
     </header>
     <main>
       <div id="content">
-        <article id="presentation">
+        <article id="infos">
           <section id="card">
             <div id="profile">
               <img src="images/interview/victor_petit.jpg" alt="" />
@@ -51,57 +51,38 @@
               </div>
             </div>
           </section>
-          <section>
+          <section id="presentation">
             <h2>Présentation :</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-              voluptatibus, ad harum facere ex eum adipisci tempore architecto
-              accusantium pariatur, quis ab sapiente nihil ut doloremque veniam
-              sit consequuntur at. Repellat quae nulla deserunt qui voluptas
-              sequi! Expedita illum corrupti totam sunt. Reiciendis, aperiam cum
-              laborum quae facere aliquam adipisci, assumenda voluptate quis et
-              dolore, impedit illo magnam nisi mollitia?
+              Victor Petit jeune auto entrepreneur de 25 ans habite à Périgueux.
+              <br />
+              Possédant 5 ans d’expériences à son actif dans le domaine du
+              développement web/mobile.
+              <br />
+              Pendant 2 an et demie il travailla à Bisness et Décision et par la
+              suite pris son indépendance. L’épidémie du Covid a été l’élément
+              déclencheur de son départ en freelance avec l’aide d’un ami qui
+              l’a soutenue dans cette démarche.
             </p>
           </section>
         </article>
         <article id="interview">
           <section class="showingDiv">
-            <h2>Peux-tu te présenter ?</h2>
-            <div>
-              <p>
-                Alors moi c’est Victor Petit j’ai 25 ans j’habite à Périgueux et
-                ça fait 5 ans que je travaille professionnellement dans le
-                domaine informatique spécialisé dans le web et le mobile.
-                <br />
-                J’ai fais peu d’entreprise privé dans le sens où j’ai travaillé
-                dans une ESN (entreprise spécialisée en services numériques)
-                pendant 2 ans ai demie et puis je suis partie rapidement à mon
-                compte.
-                <br />
-                L’entreprise s’appelait Bisness et Décision.
-                <br />
-                Lorsque le Covid est arrivé j’ai eu l’occasion d’aller en
-                freelance car un ami a moi qui lui est en freelance m’a
-                conseillé de m’y lancer. Il m’avait dit que j’avais largement le
-                niveau de m’y lancer et depuis ce jour je ne regrette pas du
-                tout.
-              </p>
-            </div>
-          </section>
-          <section class="showingDiv">
             <h2>Comment trouves-tu tes clients ?</h2>
             <div>
-              Au début forcément tu utilises des plateformes comme Malt pour
-              trouver des professionnels avec des profils freelances.
-              <br />
-              Et ensuite au fil et à mesure à force de faire des missions et de
-              rencontrer des clients en faisant notamment des formations tu te
-              fais connaître par le bouche à oreille.
-              <br />
-              J’ai donc fidélisé une clientèle de cette manière.
-              <br />
-              Je ne peux pas embaucher des personnes pour travailler avec moi
-              car je suis en auto-entreprise.
+              <p>
+                Au début forcément tu utilises des plateformes comme Malt pour
+                trouver des professionnels avec des profils freelances.
+                <br />
+                Et ensuite au fil et à mesure à force de faire des missions et
+                de rencontrer des clients en faisant notamment des formations tu
+                te fais connaître par le bouche à oreille.
+                <br />
+                J’ai donc fidélisé une clientèle de cette manière.
+                <br />
+                Je ne peux pas embaucher des personnes pour travailler avec moi
+                car je suis en auto-entreprise.
+              </p>
             </div>
           </section>
           <section class="showingDiv">
@@ -645,18 +626,10 @@
       </section>
     </footer>
     <script src="scripts/index/showDiv.js"></script>
+    <script src="scripts/entreprise/slideCard.js"></script>
+    <script src="scripts/index/clouds.js"></script>
     <script>
-      let idCloud = 1;
-      const pathCloud = "images/clouds/cloud";
-
-      const imgCloud = document.getElementById("cloud").children[0];
-      imgCloud.src = pathCloud + idCloud + ".png";
-      setInterval(() => {
-        ++idCloud;
-        if (idCloud === 3) ++idCloud;
-        if (idCloud > 5) idCloud = 1;
-        imgCloud.src = pathCloud + idCloud + ".png";
-      }, 30 * 1000);
+      activateClouds(30);
     </script>
   </body>
 </html>
