@@ -28,7 +28,13 @@ main {
 }
 
 #content h2:hover {
-  background-color: var(--yellowHover);
+  color: white;
+  background: linear-gradient(
+    130deg,
+    rgba(19, 19, 19, 1) 5%,
+    rgba(240, 219, 24, 1) 60%,
+    rgba(255, 64, 41, 1) 85%
+  );
 }
 
 #content .showingDiv div {
@@ -58,6 +64,7 @@ main {
 
 #contentTitle h2:hover {
   border-radius: 1rem;
+  background-color: transparent;
 }
 
 #contentTitle h2 {
