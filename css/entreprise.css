@@ -210,6 +210,14 @@ main {
   text-align: justify;
 }
 
+#infos *::selection{
+  background: var(--blue);
+}
+
+#infos h2::selection, #infos span::selection, #infos img::selection{
+  background: var(--red);
+}
+
 #infos #presentation h2 {
   text-align: center;
   color: white;
@@ -220,29 +228,43 @@ main {
   background-color: transparent;
 }
 
-#content .showingDiv h2 {
+.showingDiv h2 {
+  background: rgb(220,220,220);
+  color: black;
+}
+
+.showingDiv h2::selection {
+  background: var(--blue);
+}
+
+.showingDiv p::selection{
+  background: var(--blue);
+}
+
+.showingDiv h2:hover {
   background: linear-gradient(
     140deg,
     rgba(0, 0, 255, 1) 0%,
-    rgba(200, 200, 200, 1) 14%,
-    rgba(200, 200, 200, 1) 73%,
+    rgba(230, 230, 230, 1) 14%,
+    rgba(230, 230, 230, 1) 73%,
     rgba(255, 0, 0, 1) 100%
   );
   color: black;
 }
 
-#content .showingDiv p {
+
+.showingDiv p {
   font-family: "Inter", sans-serif;
   text-align: justify;
   font-size: 1.3rem;
 }
 
-#content .showingDiv div {
+.showingDiv div {
   background: linear-gradient(
     140deg,
     rgba(0, 0, 255, 1) 0%,
-    rgba(200, 200, 200, 1) 8%,
-    rgba(200, 200, 200, 1) 92%,
+    rgba(220, 220, 220, 1) 8%,
+    rgba(220, 220, 220, 1) 92%,
     rgba(255, 0, 0, 1) 100%
   );
 }
@@ -309,13 +331,17 @@ footer article {
   position: relative;
 }
 
+footer *::selection{
+  background-color: var(--blue);
+}
+
 footer h5 {
   color: red;
   font-size: 2rem;
 }
 
 footer h5::selection {
-  background-color: var(--yellow);
+  background-color: var(--red);
 }
 
 footer li {
@@ -324,7 +350,7 @@ footer li {
 }
 
 footer li:hover a {
-  color: var(--yellow);
+  color: var(--blue);
 }
 
 footer li a {

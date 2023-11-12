@@ -17,10 +17,6 @@
   --blue: rgb(24, 59, 214);
 }
 
-*::selection {
-  background-color: var(--red);
-}
-
 a,
 button,
 #menu,
