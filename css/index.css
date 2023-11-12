@@ -116,11 +116,11 @@ header {
   border-radius: 1rem;
 }
 
-#menuList li:hover {
+#menuList li:hover, #menuList li:hover > a  {
   color: var(--black);
 }
 
-#menuList li {
+#menuList li, #menuList li a{
   font-size: 1.6rem;
   color: var(--white);
 }
@@ -225,6 +225,26 @@ header {
   height: 100vh;
 }
 
+#entreprise:hover{
+ padding-bottom: 0;
+}
+#entreprise:hover #menuEntreprise{
+  display: block;
+}
+
+#menuEntreprise li{
+  padding-left: 1rem;
+  margin: 0;
+}
+
+#menuEntreprise li:nth-child(1){
+  margin-top: 1rem;
+}
+
+#menuEntreprise{
+  display: none;
+}
+
 /*----------MAIN INDEX----------*/
 #index {
   background: linear-gradient(
@@ -287,6 +307,10 @@ footer {
   height: 35vh;
   z-index: 1;
   background-color: var(--footer);
+}
+
+footer li a.selected {
+  color: var(--yellow);
 }
 
 #skyline {

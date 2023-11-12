@@ -41,6 +41,44 @@ header nav li a.selected {
   color: var(--yellow);
 }
 
+  
+#entreprise{
+  position: relative;
+}
+
+#entreprise:hover #menuEntreprise{
+  display: block;
+}
+
+#entreprise #menuEntreprise:hover{
+  display: block;
+}
+
+#menuEntreprise{
+  display: none;
+  position: absolute;
+  background-color: var(--blackMenuList);
+  padding: 15% 0.5rem 0.5rem 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  top: 100%;
+}
+
+#menuEntreprise li a{
+  font-size: 1.25rem;
+}
+
+#menuEntreprise li::before{
+  content: "-";
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  left: 6%;
+}
+
+/* Main */
+
 main {
   margin-top: 3.5rem;
   position: relative;
@@ -174,6 +212,10 @@ footer {
   height: 35vh;
   background-color: var(--footer);
   z-index: 1;
+}
+
+footer li a.selected {
+  color: var(--yellow);
 }
 
 #skyline {

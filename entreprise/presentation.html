@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/presentation.css" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+    <title>PrefoWeb</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li id="entreprise">
+            <a href="#" class="selected">Entreprise</a>
+            <ul id="menuEntreprise">
+              <li><a href="#" class="selected">Présentation</a></li>
+              <li><a href="interview.html">Interview</a></li>
+            </ul>
+          </li>
+          <li><a href="../galerie.html">Galerie</a></li>
+          <li><a href="#">Me contacter</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="content">
+        
+      </div>
+    </main>
+
+    <footer>
+      <div id="cloud">
+        <img src="../images/clouds/cloud1.png" alt="" />
+      </div>
+      <article>
+        <section id="logo">
+          <img id="logoImage" src="../images/logo2.png" alt="Logo de CF2M" />
+          <p>Fait pour devenir meilleur et visons ensemble l'avenir.</p>
+        </section>
+        <section id="link">
+          <h5>Link</h5>
+          <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="#" class="selected">Presentation</a></li>
+            <li><a href="interview.html">Interview</a></li>
+            <li><a href="../galerie.html">Galerie</a></li>
+            <li><a href="#">Me contacter</a></li>
+          </ul>
+        </section>
+      </article>
+      <div id="skyline"><img src="../images/skylineParis.png" alt="" /></div>
+      <section id="copyright">
+        <p>
+          © [2023] Kevin. Design in collaboration with : Sebastien. Tous droits
+          réservés. Le logo de CF2M est une marque déposée de CF2M et est
+          utilisé avec permission.
+        </p>
+      </section>
+    </footer>
+    <script src="../scripts/index/clouds.js"></script>
+    <script>
+      activateClouds(30, "../images/clouds/cloud");
+    </script>
+  </body>
+</html>
