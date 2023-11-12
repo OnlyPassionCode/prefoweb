@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/content.css" />
-    <link rel="stylesheet" href="css/entreprise.css" />
-    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/content.css" />
+    <link rel="stylesheet" href="../css/interview.css" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
     <title>PrefoWeb</title>
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="index.html">Accueil</a></li>
+          <li><a href="../index.html">Accueil</a></li>
           <li><a href="#" class="selected">Entreprise</a></li>
-          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="../galerie.html">Galerie</a></li>
           <li><a href="#">Me contacter</a></li>
         </ul>
       </nav>
@@ -25,7 +25,7 @@
         <article id="infos">
           <section id="card">
             <div id="profile">
-              <img src="images/interview/victor_petit.jpg" alt="" />
+              <img src="../images/interview/victor_petit.jpg" alt="" />
             </div>
             <div id="description">
               <span>Victor Petit</span>
@@ -36,17 +36,17 @@
             <div id="social-media">
               <div>
                 <a href="#">
-                  <img src="images/socials/twitter.svg" alt="" />
+                  <img src="../images/socials/twitter.svg" alt="" />
                 </a>
               </div>
               <div>
                 <a href="#">
-                  <img src="images/socials/facebook.svg" alt="" />
+                  <img src="../images/socials/facebook.svg" alt="" />
                 </a>
               </div>
               <div>
                 <a href="#">
-                  <img src="images/socials/linkedin.svg" alt="" />
+                  <img src="../images/socials/linkedin.svg" alt="" />
                 </a>
               </div>
             </div>
@@ -599,24 +599,25 @@
 
     <footer>
       <div id="cloud">
-        <img src="images/clouds/cloud1.png" alt="" />
+        <img src="../images/clouds/cloud1.png" alt="" />
       </div>
       <article>
         <section id="logo">
-          <img id="logoImage" src="images/logo2.png" alt="Logo de CF2M" />
+          <img id="logoImage" src="../images/logo2.png" alt="Logo de CF2M" />
           <p>Fait pour devenir meilleur et visons ensemble l'avenir.</p>
         </section>
         <section id="link">
           <h5>Link</h5>
           <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="#">Entreprise</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="presentation.html">Presentation</a></li>
+            <li><a href="#" class="selected">Interview</a></li>
+            <li><a href="../galerie.html">Galerie</a></li>
             <li><a href="#">Me contacter</a></li>
           </ul>
         </section>
       </article>
-      <div id="skyline"><img src="images/skylineParis.png" alt="" /></div>
+      <div id="skyline"><img src="../images/skylineParis.png" alt="" /></div>
       <section id="copyright">
         <p>
           © [2023] Kevin. Design in collaboration with : Sebastien. Tous droits
@@ -625,11 +626,12 @@
         </p>
       </section>
     </footer>
-    <script src="scripts/index/showDiv.js"></script>
-    <script src="scripts/entreprise/slideCard.js"></script>
-    <script src="scripts/index/clouds.js"></script>
+    <script src="../scripts/index/showDiv.js"></script>
+    <script src="../scripts/entreprise/slideCard.js"></script>
+    <script src="../scripts/index/clouds.js"></script>
     <script>
-      activateClouds(30);
+
+      activateClouds(30, "../images/clouds/cloud");
     </script>
   </body>
 </html>

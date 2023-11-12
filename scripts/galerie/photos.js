@@ -35,6 +35,7 @@ addEventListener("keydown", (event) => {
 });
 
 addEventListener("wheel", (e) => {
+  if(!isClickedImage) return;
   if (e.deltaY < 0) previousImage();
   else nextImage();
 });
@@ -110,7 +111,7 @@ function quitShowingImage() {
     getCurrentTranslateXFromElement(timeline.children[0])
   );
   isClickedImage = false;
-  document.body.style.overflow = "scroll";
+  document.body.style.overflowY = "scroll";
 }
 
 backgroundViewImage.addEventListener("click", quitShowingImage);
@@ -121,23 +122,6 @@ function loadBaseImage() {
     const img = document.createElement("img");
     img.src = folder + fileName[i] + ".jpg";
     img.dataset.index = i;
-    img.addEventListener("click", () => {
-      if (
-        lastTimeDragedTimeLine != null &&
-        new Date().getTime() - lastTimeDragedTimeLine < 400
-      )
-        return;
-      document.body.style.overflow = "hidden";
-      isClickedImage = true;
-      imgShowImg.src = img.src.replace("timelineResized", "timeline");
-      imgShowImg.dataset.index = img.dataset.index;
-      showImg.style.display = "block";
-      backgroundViewImage.style.display = "block";
-      stopTranslateAndKeepPosition(getCurrentTranslateXFromElement(img));
-    });
-    img.addEventListener("dragstart", function (e) {
-      e.preventDefault();
-    });
     timeline.appendChild(img);
   }
 }
@@ -154,6 +138,20 @@ animation();
 function addEventListenerToImage() {
   for (let i = 0; i < timeline.children.length; ++i) {
     const overImage = timeline.children[i];
+    overImage.addEventListener("click", () => {
+      if (
+        lastTimeDragedTimeLine != null &&
+        new Date().getTime() - lastTimeDragedTimeLine < 400
+      )
+        return;
+      document.body.style.overflowY = "hidden";
+      isClickedImage = true;
+      imgShowImg.src = overImage.src.replace("timelineResized", "timeline");
+      imgShowImg.dataset.index = overImage.dataset.index;
+      showImg.style.display = "block";
+      backgroundViewImage.style.display = "block";
+      stopTranslateAndKeepPosition(getCurrentTranslateXFromElement(overImage));
+    });
     overImage.addEventListener("mouseover", () => {
       if (isTimelineClickDown) return;
       const currentTranslateX = getCurrentTranslateXFromElement(overImage);
@@ -164,6 +162,9 @@ function addEventListenerToImage() {
       restartTranslateWithCurrentPosition(
         getCurrentTranslateXFromElement(overImage)
       );
+    });
+    overImage.addEventListener("dragstart", function (e) {
+      e.preventDefault();
     });
   }
 }
