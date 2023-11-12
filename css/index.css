@@ -253,6 +253,16 @@ header {
   );
 }
 
+.showingDiv div {
+  background: linear-gradient(
+    140deg,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(220,220,220, 1) 15%,
+    rgba(220,220,220, 1) 85%,
+    rgba(255, 64, 41, 1) 100%
+  );
+}
+
 #atonium {
   position: absolute;
   left: -250px;
