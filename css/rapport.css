@@ -90,6 +90,8 @@
   /* MAIN */
   
   main {
+    position: relative;
+    z-index: 2;
     margin-top: 3rem;
     background: linear-gradient(
       120deg,
@@ -98,6 +100,61 @@
       rgba(200, 200, 200, 1) 55%,
       rgba(255, 0, 0, 1) 100%
     );
+  }
+
+  h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(242, 103, 65);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    height: 25vh;
+  }
+
+  #demarche{
+    background-color: rgb(46, 110, 171);
+  }
+
+  #demarche p{
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  #description{
+    background-color: rgb(255, 223, 93)
+  }
+  
+
+  #description section{
+    margin-right: 1rem;
+  }
+
+  #description h2{
+    padding-left: 1rem;
+    font-size: 2rem;
+  }
+
+  #description p{
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  #demarche, #description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #demarche p, #description p{
+    vertical-align: top;
+  }
+
+  #demarche img, #description img{
+    width: 50%;
   }
   
   /* FOOTER */

@@ -1,0 +1,95 @@
+:root{
+    --php: rgb(120, 124, 180);
+    --csharp: rgb(150, 77, 145);
+    --crm: rgb(33, 154, 235);
+}
+
+#organigramme{
+    font-family: "Inter", sans-serif;
+    position: relative;
+    height: 55vh;
+    width: 100vw;
+    background-color: rgb(220,220,220);
+}
+
+#organigramme h2{
+    text-align: center;
+    font-size: 2.5rem;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+#organigramme div{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 8vw;
+    height: 5vh;
+    transform: translateX(-4vw);
+    border-radius: 0.5rem;
+}
+
+#organigramme #centre{
+    top: 20%;
+    left: 50%;
+    font-size: 1.5rem;
+    background-color: var(--red);
+}
+
+#organigramme #secteur{
+    top: 35%;
+    left: 50%;
+    font-size: 1.3rem;
+    background-color: var(--yellow);
+}
+
+#organigramme #poleCRM, #chefProjetCRM, #employeeCRM{
+    top: 50%;
+    left: 40%;
+    font-size: 1.2rem;
+    background-color: var(--crm);
+}
+
+#organigramme #polePHP, #chefProjetPHP, #employeePHP{
+    top: 50%;
+    left: 50%;
+    font-size: 1.2rem;
+    background-color: var(--php);
+}
+
+#organigramme #poleDOTNET, #chefProjetDOTNET, #employeeDOTNET{
+    top: 50%;
+    left: 60%;
+    font-size: 1.2rem;
+    background-color: var(--csharp);
+}
+
+#chefProjetCRM{
+    top:65%;
+}
+
+#chefProjetPHP{
+    top:65%;
+}
+
+#chefProjetDOTNET{
+    top:65%;
+}   
+
+#employeeCRM{
+    top:80%;
+}
+
+#employeePHP{
+    top:80%;
+}
+
+#employeeDOTNET{
+    top:80%;
+}
+
