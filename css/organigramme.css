@@ -4,6 +4,16 @@
   --crm: rgb(33, 154, 235);
 }
 
+@keyframes opacityAnimation {
+  0% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 #organigramme {
   font-family: "Inter", sans-serif;
   position: relative;
@@ -22,16 +32,18 @@
 }
 
 #organigramme h2 {
+  display: none;
   text-align: center;
   font-size: 2.5rem;
   padding-top: 1rem;
   text-transform: uppercase;
   text-decoration: underline;
+  animation: opacityAnimation 1.2s linear;
 }
 
 #organigramme div {
+  display: none;
   position: absolute;
-  display: flex;
   justify-content: center;
   align-items: center;
   color: white;
@@ -41,6 +53,7 @@
   height: 5vh;
   transform: translateX(-4vw);
   border-radius: 0.5rem;
+  animation: opacityAnimation 1.2s linear;
 }
 
 #organigramme #centre {

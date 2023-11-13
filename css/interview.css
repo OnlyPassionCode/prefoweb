@@ -373,3 +373,7 @@ footer h5::selection {
 footer li:hover a {
   color: var(--blue);
 }
+
+footer li a.selected {
+  color: var(--red);
+}

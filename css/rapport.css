@@ -114,6 +114,30 @@ h1 {
   height: 12.5vh;
 }
 
+@keyframes animationLeftToRight {
+  0% {
+    opacity: 0.1;
+    transform: translateX(-250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes animationRightToLeft {
+  0% {
+    opacity: 0.1;
+    transform: translateX(250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 #demarche {
   background-color: rgb(46, 110, 171);
 }
@@ -122,6 +146,11 @@ h1 {
   padding: 1rem;
   font-size: 1.5rem;
   color: white;
+  animation: animationLeftToRight 1s linear;
+}
+
+#demarche img {
+  animation: animationLeftToRight 1s linear;
 }
 
 #description {
@@ -129,7 +158,12 @@ h1 {
 }
 
 #description section {
+  display: none;
   margin-right: 1rem;
+}
+
+#description img {
+  display: none;
 }
 
 #description h2 {
@@ -200,4 +234,8 @@ footer h5::selection {
 
 footer li:hover a {
   color: var(--blue);
+}
+
+footer li a.selected {
+  color: var(--red);
 }
