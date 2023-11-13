@@ -9,7 +9,16 @@
   position: relative;
   height: 60vh;
   width: 100vw;
-  background-color: rgb(220, 220, 220);
+  background: linear-gradient(
+    130deg,
+    rgb(255, 255, 255) 0%,
+    rgba(85, 240, 240, 1) 25%,
+    rgba(240, 240, 240, 1) 40%,
+    rgba(240, 185, 240, 1) 50%,
+    rgba(240, 240, 240, 1) 60%,
+    rgba(240, 240, 85, 1) 75%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 #organigramme h2 {
