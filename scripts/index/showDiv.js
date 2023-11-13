@@ -9,10 +9,12 @@ for (const section of showingDiv) {
     if (lastShow !== undefined) {
       lastShow.style.maxHeight = sizeClosed;
       const needToReturn = lastShow === section;
+      lastShow.querySelector("img").style.transform = "rotate(90deg)";
       lastShow = undefined;
       if (needToReturn) return;
     }
     lastShow = section;
+    section.querySelector("img").style.transform = "rotate(-90deg)";
     section.style.maxHeight = section.scrollHeight + "px";
   });
 }

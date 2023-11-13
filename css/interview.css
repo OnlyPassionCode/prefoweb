@@ -295,7 +295,7 @@ main {
   font-size: 1.3rem;
 }
 
-.showingDiv div {
+.showingDiv > div {
   background: linear-gradient(
     140deg,
     rgba(0, 0, 255, 1) 0%,

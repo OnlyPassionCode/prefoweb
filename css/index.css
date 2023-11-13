@@ -255,7 +255,7 @@ header {
   );
 }
 
-.showingDiv div {
+.showingDiv > div {
   background: linear-gradient(
     140deg,
     rgba(19, 19, 19, 1) 0%,
