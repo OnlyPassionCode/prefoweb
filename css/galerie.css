@@ -41,20 +41,19 @@ header nav li a.selected {
   color: var(--yellow);
 }
 
-  
-#entreprise{
+#entreprise {
   position: relative;
 }
 
-#entreprise:hover #menuEntreprise{
+#entreprise:hover #menuEntreprise {
   display: block;
 }
 
-#entreprise #menuEntreprise:hover{
+#entreprise #menuEntreprise:hover {
   display: block;
 }
 
-#menuEntreprise{
+#menuEntreprise {
   display: none;
   position: absolute;
   background-color: var(--blackMenuList);
@@ -64,11 +63,11 @@ header nav li a.selected {
   top: 100%;
 }
 
-#menuEntreprise li a{
+#menuEntreprise li a {
   font-size: 1.25rem;
 }
 
-#menuEntreprise li::before{
+#menuEntreprise li::before {
   content: "-";
   position: absolute;
   color: white;
@@ -199,112 +198,4 @@ main video {
   cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
   margin-left: 3vw;
   width: 12%;
-}
-
-/* FOOTER */
-
-footer {
-  font-family: "Inter", sans-serif;
-}
-
-footer {
-  position: relative;
-  height: 35vh;
-  background-color: var(--footer);
-  z-index: 1;
-}
-
-footer li a.selected {
-  color: var(--yellow);
-}
-
-#skyline {
-  position: absolute;
-  bottom: 4.5rem;
-  width: 100vw;
-  text-align: center;
-  z-index: -1;
-  transform: scale(1.4);
-}
-
-footer span {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--white);
-  letter-spacing: 0.3rem;
-  display: block;
-  text-align: center;
-  padding: 3rem;
-}
-
-#propos {
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  margin-top: 3.5%;
-  margin-left: 3%;
-}
-
-#link {
-  position: absolute;
-  right: 6%;
-  margin-top: 2.5%;
-}
-
-footer article {
-  position: relative;
-}
-
-footer h5 {
-  color: red;
-  font-size: 2rem;
-}
-
-footer h5::selection {
-  background-color: var(--yellow);
-}
-
-footer li {
-  list-style-type: none;
-  cursor: url("../images/cursors/Belgium_Flag_Pointer.png"), pointer;
-}
-
-footer li:hover a {
-  color: var(--yellow);
-}
-
-footer li a {
-  font-size: 1.4rem;
-  text-decoration: none;
-  color: var(--white);
-}
-
-footer p {
-  color: var(--white);
-  font-size: 1.2rem;
-}
-
-#copyright {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  text-align: center;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  background-color: var(--blackMenuList);
-}
-
-#logo {
-  width: 15%;
-  position: absolute;
-  left: 3%;
-  margin-top: 2.5%;
-}
-
-#logoImage {
-  width: 250px;
-  filter: brightness(0) invert(1);
 }
